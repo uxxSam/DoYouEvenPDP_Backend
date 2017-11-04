@@ -36,7 +36,7 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  'POST /login': {
+  'GET /login': {
       controller: 'AuthController',
       action: 'process'
   },
