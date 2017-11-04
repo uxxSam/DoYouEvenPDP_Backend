@@ -19,7 +19,8 @@
          passport.authenticate('local', function(err, user, info) {
              if( (err)||(!user) ) {
                  return res.send(401, {
-                     message: 'login failed'
+                     message: 'login failed',
+										 Status: -1
                  });
                  res.send(err);
              }
@@ -27,7 +28,8 @@
                  if(err) res.send(err);
 								 return res.status(200).json({
 										ID: user.id,
-										Message: 'login success'
+										Message: 'login success',
+										Status: 1
 								});
                 //  return res.send(200, {
                 //      message: 'login successful',

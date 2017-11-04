@@ -7,21 +7,18 @@
 
 module.exports = {
 	fetch: function(req, res) {
-		if (!req.header.ID) return res.send(403, {
-			message: 'Please Login first'
+		if (!req.headers.id) return res.send(403, {
+			message: 'Please Login first',
+			Status: -1
 		});
-	// 	Model.find({
-	// 	  where: { id: req.header.ID }
-	// 	}).exec(function(err, res){
-	// 		if (err || !res) {
-	// 			return res.send(403, {
-	// 				message: 'Token Invalid'
-	// 			});
-	// 		}
-	// 		return res.status(200).json({
-	// 			 ID: user.id,
-	// 			 Message: 'login success'
-	// 	 })
-	//  };
- }
- };
+		User.find({ id: req.headers.id }).exec(function (err, usersNamedFinn){
+		  if (err) {
+		    return res.send(403, {
+					message: 'Wrong Login',
+					Status: -1
+				})
+		  }
+  return res.send(200);
+});
+}
+};
