@@ -45,8 +45,8 @@ module.exports.routes = {
       action: 'logout'
   },
 
-  'GET /data': {
-      controller: 'DataController',
+  'GET /fooddata': {
+      controller: 'FoodDataController',
       action: 'fetch'
   },
 

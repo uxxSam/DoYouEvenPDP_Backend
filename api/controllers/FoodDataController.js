@@ -12,13 +12,25 @@ module.exports = {
 			Status: -1
 		});
 		User.find({ id: req.headers.id }).exec(function (err, usersNamedFinn){
-		  if (err) {
+		  if (err || usersNamedFinn.length == 0) {
 		    return res.send(403, {
 					message: 'Wrong Login',
 					Status: -1
 				})
-		  }
-  return res.send(200);
-});
-}
-};
+		  } else {
+					FoodData.find().exec(function (err, foodLocation){
+						if (err || foodLocation.length == 0) {
+							return res.send(403, {
+								message: 'No record found',
+								Status: -1
+							});
+						} else {
+							return res.status(200).json({
+								foodLocation
+						 });
+						}
+					})
+				}
+			})
+		}
+	};

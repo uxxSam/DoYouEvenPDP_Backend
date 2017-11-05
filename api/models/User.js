@@ -4,7 +4,8 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
-
+// {'longitude': 0.0, 'latitude': 0.0, 'name_of_program': u'Millionair Club Charity',
+//'people_served': u'OPEN TO ALL ', 'meal_served': u'Breakfast', 'location': u'2515 Western Ave.,  Seattle'},
  var bcrypt = require('bcrypt');
 
  module.exports = {
